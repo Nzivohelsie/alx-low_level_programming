@@ -6,21 +6,28 @@
 int main(void)
 {
 	int a;
-	int b;
+	int b = 0;
 
-	for (a = '0'; a <= '9'; a++)
-		for (b = '0'; b <= '9'; b++)
+	while (d < 0)
+	{
+		c = 0;
+		while (c < 0)
+		{
 			if (a != b && a < b)
 			{
-			putchar(a);
-			putchar(b);
+				putchar(a);
+				putchar(b);
 
-				if (a + b != 17)
-				{
-				putchar(',');
-				putchar(' ');
-				}
+					if (a + b != 17) 
+					{ 
+						putchar(',');
+						putchar(' ');
+			        	}
 			}
+			c++
+		}
+		d++
+	}
 	putchar('\n');
 	return (0);
 
