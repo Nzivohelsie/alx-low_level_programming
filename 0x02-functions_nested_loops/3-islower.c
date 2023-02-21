@@ -2,6 +2,7 @@
 /**
  * _islower - check lower case
  * Return: 0 , 1 success
+ * @c: interger
  */
 int _islower(int c)
 {
