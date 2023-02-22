@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * _abs - print absolute number
- * @a: parmeter 1
+ * @n: parmeter 1
  * Return: always 0
  */
 int _abs(int n)
