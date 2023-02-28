@@ -6,17 +6,15 @@
 void puts2(char *str)
 {
 	int le = 0;
-	int p = 0;
-	char *a = str;
 	int t;
+	char *r = str;	
 
-	while (*a != '\0')
+	while (*r != '\0')
 	{
-		a++;
+		r++;
 		le++;
 	}
-	p = le - 1;
-	for (t = 0; t <= p; t++)
+	for (t = 0; t < le; t++)
 	{
 		if (t % 2 == 0)
 		{
