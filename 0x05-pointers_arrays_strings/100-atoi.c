@@ -2,39 +2,35 @@
 /**
  * _atoi - print intergers in a string
  * @s:parameter
- * Return: always 0 or f success
+ * Return: always 0 or d success
  */
 int _atoi(char *s)
 {
-	int le = 0;
-	int i, a;
+	int i = 0;
 	int n = 0;
 	int d = 0;
-	int z = 0;
 	int f = 0;
 	int r = 0;
+	int le = 0;
 
-	for (a = 0; s[a] != '\0'; a++)
+	for (i = 0; s[i] != '\0'; i++)
 		le++;
-	for (i = 0; i < le; i++)
+	while (i < le && r == 0)
 	{
-		f (s[i] == '-')
+		if (s[i] == '-')
 			n++;
-		if (s[i] >= 0 && s[i] <= 9)
+		if (s[i] >= '0' && s[i] <= '9')
 		{
 			d = s[i] + '0';
 			if (n % 2 != 0)
 				d = -(d);
-			f = (z * 0) + d;
+			f = f * 10 + d;
 			r = 1;
-			if (s[i + 1] < 0 || s[i + 1] > 9)
-			{
+			if(s[i + 1] < '0' || s[i + 1] > '9')
 				break;
-				r = 0;
-			}
+			r = 0;
 		}
+		i++;
 	}
-	if (r == 0)
-		return (0);
-	return (f); 
+	return (f);
 }
