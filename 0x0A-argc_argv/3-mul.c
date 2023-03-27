@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * mul - multiply two numbers
+ * main - multiply two numbers
  * @argc: argument count
  * @argv: array of string pointers
  * Return: solution
