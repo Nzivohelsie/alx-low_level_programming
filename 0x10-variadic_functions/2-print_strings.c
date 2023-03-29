@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * print_string - print string
+ * print_strings- print string
  * @separator: in between strings
  * @n: argument count
  */
