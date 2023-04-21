@@ -14,7 +14,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd, j;
-	size_t i = 0;
+	size_t i = 1;
 	ssize_t chars_write;
 	char *str;
 
