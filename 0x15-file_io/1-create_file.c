@@ -14,8 +14,9 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd, j;
-	size_t i = 1;
+	size_t i = 0;
 	ssize_t chars_write;
+	ssize_t chars_read = 0;
 	char *str;
 
 	if (filename == NULL)
@@ -25,11 +26,14 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	str = text_content;
 	for (j = 0; str[j] != '\0'; j++)
+	{
 		i += 1;
+		chars_read += 1;
+	}
 	if (str != NULL)
 	{
-		chars_write = write(fd, text_content, i);
-		if (chars_write == -1)
+		chars_write = write(fd, str, i);
+		if (chars_write == -1 || chars_read != chars_write)
 			return (-1);
 	}
 	close(fd);
