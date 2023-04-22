@@ -74,7 +74,7 @@ int copy_to_file(const char *file_from, char *file_to)
 		}
 	}
 	chars_write = write(fd_2, buffer, i);
-	if (chars_write == -1)
+	if (chars_write == -1 || chars_write != chars_read)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
