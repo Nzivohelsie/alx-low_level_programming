@@ -51,21 +51,30 @@ int copy_to_file(const char *file_from, char *file_to)
 	void *buffer;
 
 	fd_1 = open(file_from, O_RDONLY);
-	if (fd_1 == -1)
+	buffer = malloc(size * sizeof(char));
+	chars_read = read(fd_1, buffer, size);
+	if (fd_1 == -1 || chars_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	buffer = malloc(size * sizeof(char));
-	chars_read = read(fd_1, buffer, size);
 	for (j = 0; j < chars_read; j++)
 	{
 		i += 1;
 	}
-	fd_2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC);
-	chmod(file_to, 00664);
+	fd_2 = open(file_to, O_WRONLY | O_TRUNC);
+	if (fd_2 == -1)
+	{
+		fd_2 = open(file_to, O_WRONLY | O_CREAT);
+		chmod(file_to, 00664);
+		if (fd_2 == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
+	}
 	chars_write = write(fd_2, buffer, i);
-	if (chars_write == -1 || fd_2 == -1)
+	if (chars_write == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
